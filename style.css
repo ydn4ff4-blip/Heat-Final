@@ -1,0 +1,41 @@
+
+:root{
+  --bg:#0b0f14;--panel:#0f172a;--muted:#9fb0c3;--fg:#e8f2ff;
+  --hot:#ef4444;--warm:#f59e0b;--cold:#3b82f6;--ok:#10b981;
+}
+:root[data-theme="light"]{
+  --bg:#f7fafc;--panel:#ffffff;--muted:#475569;--fg:#0b1220;
+  --hot:#dc2626;--warm:#d97706;--cold:#2563eb;--ok:#059669;
+}
+*{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto}
+html,body{height:100%}
+body{margin:0;background:transparent;color:var(--fg)}
+.card{background:color-mix(in oklab, var(--panel) 96%, transparent);
+  border:1px solid rgba(0,0,0,.12);border-radius:16px;box-shadow:0 14px 32px rgba(0,0,0,.35)}
+#panel{position:fixed;right:12px;top:18px;z-index:9999;width:320px;max-width:92vw;padding:12px}
+.head{cursor:move}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.gap8{gap:8px}
+h1{font-size:14px;margin:0;color:#c7d2fe}
+.pill{padding:6px 12px;border-radius:999px;font-weight:800;font-size:12px;letter-spacing:.4px}
+.tiny{padding:4px 8px;font-size:11px}
+.s-hot{background:rgba(239,68,68,.16);color:#b91c1c;border:1px solid color-mix(in oklab,var(--hot) 50%,transparent)}
+.s-warm{background:rgba(245,158,11,.16);color:#b45309;border:1px solid color-mix(in oklab,var(--warm) 50%,transparent)}
+.s-cold{background:rgba(59,130,246,.16);color:#1d4ed8;border:1px solid color-mix(in oklab,var(--cold) 50%,transparent)}
+.s-ok{background:rgba(16,185,129,.16);color:#047857;border:1px solid color-mix(in oklab,var(--ok) 50%,transparent)}
+.icon{background:transparent;border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:6px 8px}
+.stats{color:var(--muted);font-size:12px;margin:6px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn{background:color-mix(in oklab, var(--panel) 95%, transparent);border:1px solid rgba(0,0,0,.12);
+  color:var(--fg);border-radius:12px;padding:10px;font-weight:700}
+.btn:active{transform:translateY(1px)}
+.warn{border-color:color-mix(in oklab,var(--hot) 50%,transparent)}
+.inner{margin-top:10px;padding:10px}
+h3{margin:0 0 8px 0;font-size:12px;color:#94a3b8}
+#log{max-height:180px;overflow:auto}
+.logrow{display:flex;justify-content:space-between;font-size:12px;color:#334155;padding:4px 0;border-bottom:1px dashed rgba(0,0,0,.08)}
+.good{color:#047857}.bad{color:#b91c1c}
+.mini{position:fixed;right:12px;top:18px;display:none;gap:8px;align-items:center;border:1px solid rgba(0,0,0,.12)}
+.tiny{padding:6px 8px}
+.draggable.locked .head{cursor:default}
+@media (max-width:480px){#panel{width:92vw;left:4vw;right:auto}}

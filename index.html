@@ -1,0 +1,87 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>Heat Pro — Final</title>
+  <meta name="theme-color" content="#0b0f14">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="panel" class="card draggable s-ok">
+    <header id="dragHandle" class="row head">
+      <div class="row gap8">
+        <h1>Heat Pro</h1>
+        <span class="pill tiny" id="version">FINAL</span>
+      </div>
+      <div class="row gap8">
+        <button id="themeBtn" class="icon" title="Tema">🌓</button>
+        <button id="lockBtn" class="icon" title="Kunci posisi">🔓</button>
+        <span id="status" class="pill s-ok">OK</span>
+      </div>
+    </header>
+
+    <section class="row stats">
+      <div>Heat: <b id="heat">0</b></div>
+      <div>Dead: <b id="dead">0</b></div>
+      <div>BB: <b id="bb">0</b></div>
+      <div>Dead Streak: <b id="deadStreak">0</b></div>
+    </section>
+
+    <section class="grid2">
+      <button class="btn" id="winBtn">Win / Connect</button>
+      <button class="btn" id="loseBtn">Lose (Dead)</button>
+
+      <button class="btn" id="tumbleBtn">Tumble +1</button>
+      <button class="btn" id="endSpinBtn">End Spin ▶</button>
+
+      <button class="btn" id="scatterBtn">Scatter +1</button>
+      <button class="btn" id="multBtn">Multiplier +1</button>
+
+      <button class="btn" id="fsProfitBtn">FS Profit +1</button>
+      <button class="btn" id="fsLossBtn">FS Loss +1</button>
+
+      <button class="btn warn" id="resetBtn">Reset</button>
+      <button class="btn" id="clearLogBtn">Clear History</button>
+    </section>
+
+    <section class="grid2 cfg">
+      <label>WARM ≥ <input id="twarm" type="number" value="4" min="1" max="50"></label>
+      <label>HOT ≥ <input id="thot" type="number" value="7" min="1" max="50"></label>
+      <label>COLD Dead ≥ <input id="tcold" type="number" value="12" min="1" max="100"></label>
+      <label>BB min ≥ <input id="tbb" type="number" value="2" min="2" max="20"></label>
+      <label>Tumble besar ≥ <input id="ttumble" type="number" value="5" min="2" max="50"></label>
+      <label class="row" style="justify-content:flex-start;gap:8px">
+        <input id="sound" type="checkbox" checked> Getar/Suara
+      </label>
+      <button class="btn" id="saveCfgBtn">Simpan Ambang</button>
+    </section>
+
+    <section class="card inner">
+      <h3>Riwayat</h3>
+      <div id="log"></div>
+      <div class="grid2">
+        <button class="btn" id="csvBtn">Export CSV</button>
+        <button class="btn" id="jsonBtn">Export JSON</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="mini" class="mini pill s-ok">
+    <span id="miniText">OK</span>
+    <button class="btn tiny" id="miniPlus">+1</button>
+    <button class="btn tiny" id="miniDead">D+1</button>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+    }
+  </script>
+</body>
+</html>
